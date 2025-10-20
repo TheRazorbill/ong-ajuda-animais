@@ -9,4 +9,9 @@ Este é o repositório oficial da plataforma web para a ONG "Paws & Hearts Rescu
 * Uso de hierarquia de títulos e formulário complexo.
 * Estrutura de pastas inicial definida.
 
-**Entrega II (CSS):** A fazer.
+**Entrega II (CSS):** Concluída ✔️
+* Design system com variáveis CSS.
+* Leiautes responsivos com Flexbox e Grid.
+* Componentes de interface estilizados (cards, botões, formulários).
+
+**Entrega III (JavaScript):** A fazer.
