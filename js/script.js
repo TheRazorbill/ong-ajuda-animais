@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const navLinks = document.getElementById('main-nav-links');
+
+    if (mobileMenuButton && navLinks) {
+        mobileMenuButton.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            mobileMenuButton.setAttribute('aria-expanded', isOpen);
+            const newLabel = isOpen ? 'Fechar menu' : 'Abrir menu';
+            mobileMenuButton.setAttribute('aria-label', newLabel);
+        });
+    }
+
     const registrationForm = document.getElementById('registrationForm');
     if (registrationForm) {
         const sections = document.querySelectorAll('.form-section');
@@ -8,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cpfMask = IMask(document.getElementById('cpf'), { mask: '000.000.000-00' });
         const phoneMask = IMask(document.getElementById('phone'), { mask: '(00) 00000-0000' });
         const cepMask = IMask(document.getElementById('cep'), { mask: '00000-000' });
-
-        // --- API ViaCEP ---
+        
         const cepInput = document.getElementById('cep');
         cepInput.addEventListener('blur', async () => {
             const cep = cepMask.unmaskedValue;
@@ -25,17 +37,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.getElementById('neighborhood').value = data.bairro;
                         document.getElementById('city').value = data.localidade;
                         document.getElementById('state').value = data.uf;
-                        document.getElementById('number').focus(); // Foca no campo de número
                     }
                 } catch (error) {
                     showError(cepInput, 'Não foi possível buscar o CEP.');
+                    console.error("Erro ao buscar CEP:", error);
                 }
             }
         });
 
-        // --- Funções de UI e Validação ---
-        const updateUI = () => { /* ...código de antes... */ };
+        const updateUI = () => {
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(`section${currentSection}`).classList.add('active');
 
+            steps.forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentSection) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentSection) {
+                    step.classList.add('active');
+                }
+            });
+        };
+        
         const showError = (input, message) => {
             input.classList.add('input-error');
             const errorDiv = input.nextElementSibling;
@@ -46,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const hideError = (input) => {
-            input.classList.remove('input-error');
+             input.classList.remove('input-error');
             const errorDiv = input.nextElementSibling;
             if(errorDiv && errorDiv.classList.contains('error-message')) {
                 errorDiv.style.display = 'none';
@@ -70,20 +94,39 @@ document.addEventListener('DOMContentLoaded', () => {
                     isValid = false;
                     showError(input, 'Por favor, insira um CPF válido.');
                 } else if (input.id === 'phone' && phoneMask.unmaskedValue.length < 10) {
-                    isValid = false;
+                     isValid = false;
                     showError(input, 'Por favor, insira um telefone válido.');
                 }
             });
+
             return isValid;
         };
+        
+        const updateReviewPane = () => {
+            document.getElementById('reviewFullName').textContent = document.getElementById('fullName').value;
+            document.getElementById('reviewEmail').textContent = document.getElementById('email').value;
+            document.getElementById('reviewCpf').textContent = document.getElementById('cpf').value;
+            document.getElementById('reviewPhone').textContent = document.getElementById('phone').value;
+            document.getElementById('reviewBirthDate').textContent = new Date(document.getElementById('birthDate').value + 'T00:00:00').toLocaleDateString('pt-BR');
+            document.getElementById('reviewGender').textContent = document.getElementById('gender').value || 'Não informado';
 
-        const updateReviewPane = () => { /* ...código de antes... */ };
+            document.getElementById('reviewCep').textContent = document.getElementById('cep').value;
+            document.getElementById('reviewStreet').textContent = document.getElementById('street').value;
+            document.getElementById('reviewNumber').textContent = document.getElementById('number').value;
+            document.getElementById('reviewComplement').textContent = document.getElementById('complement').value || 'N/A';
+            document.getElementById('reviewNeighborhood').textContent = document.getElementById('neighborhood').value;
+            document.getElementById('reviewCityState').textContent = `${document.getElementById('city').value} - ${document.getElementById('state').value}`;
 
-        // --- Event Listeners ---
+            const helpTypes = Array.from(document.querySelectorAll('input[name="helpTypes"]:checked')).map(cb => cb.value).join(', ');
+            document.getElementById('reviewHelpTypes').textContent = helpTypes || 'Nenhum selecionado';
+            document.getElementById('reviewAvailability').textContent = document.getElementById('availability').value || 'Não informado';
+            document.getElementById('reviewSkills').textContent = document.getElementById('skills').value || 'Não informado';
+        };
+
         registrationForm.addEventListener('click', (e) => {
             if (e.target.classList.contains('next-btn')) {
                 if (validateSection(currentSection)) {
-                    if (currentSection === 3) { // Antes de ir para a confirmação
+                    if (currentSection === 3) {
                        updateReviewPane();
                     }
                     currentSection++;
@@ -97,10 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log('Formulário enviado com sucesso!');
-            currentSection = 5; // Vai para a tela de sucesso
+            console.log('Formulário enviado!');
+            currentSection = 5; 
             updateUI();
         });
-
     }
 });
