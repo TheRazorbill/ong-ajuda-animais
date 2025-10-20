@@ -1,7 +1,5 @@
 # Paws & Hearts Rescue - Plataforma Web para ONG
 
-![Capa do projeto Paws & Hearts Rescue](https://static.photos/banners/1024x512/35)
-
 Este é o repositório oficial da plataforma web para a ONG "Paws & Hearts Rescue", um projeto focado em ajudar no resgate, reabilitação e adoção de animais em situação de vulnerabilidade. O site foi desenvolvido como parte de um projeto acadêmico, utilizando apenas HTML5, CSS3 e JavaScript puro.
 
 **🔗 Link para o site online:** (Será adicionado no próximo passo)
@@ -37,3 +35,6 @@ Este é o repositório oficial da plataforma web para a ONG "Paws & Hearts Rescu
 ## 📈 Status do Projeto
 
 **Entrega IV:** Concluída ✔️
+
+
+<img width="465" height="1073" alt="Screenshot 2025-10-20 111654" src="https://github.com/user-attachments/assets/35c87a0d-8c63-428e-9f18-8873c209884d" /> <img width="1150" height="3466" alt="127 0 0 1_5501_projetos html" src="https://github.com/user-attachments/assets/4660915a-af69-4e06-a304-7c3307542387" /> <img width="1052" height="1016" alt="image" src="https://github.com/user-attachments/assets/774e2119-5177-4c58-96f5-91174a76c583" />
