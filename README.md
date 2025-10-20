@@ -2,7 +2,8 @@
 
 Este é o repositório oficial da plataforma web para a ONG "Paws & Hearts Rescue", um projeto focado em ajudar no resgate, reabilitação e adoção de animais em situação de vulnerabilidade. O site foi desenvolvido como parte de um projeto acadêmico, utilizando apenas HTML5, CSS3 e JavaScript puro.
 
-**🔗 Link para o site online:** (Será adicionado no próximo passo)
+ [-> **🔗 Link para o site online:** <-](https://therazorbill.github.io/ong-ajuda-animais/)
+
 
 ## ✨ Funcionalidades
 
