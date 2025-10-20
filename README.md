@@ -4,4 +4,9 @@ Este é o repositório oficial da plataforma web para a ONG "Paws & Hearts Rescu
 
 ## Status do Projeto
 
-**Entrega I (HTML):** Em andamento.
+**Entrega I (HTML):** Concluída ✔️
+* Estrutura semântica para 3 páginas (Início, Projetos, Cadastro).
+* Uso de hierarquia de títulos e formulário complexo.
+* Estrutura de pastas inicial definida.
+
+**Entrega II (CSS):** A fazer.
