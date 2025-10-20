@@ -174,3 +174,70 @@ body {
     text-align: center;
     color: var(--gray-400);
 }
+
+/* Form Styles */
+.form-group { margin-bottom: 1rem; }
+.form-label { display: block; color: var(--gray-600); margin-bottom: 0.5rem; }
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+}
+
+/* Registration Form Specifics */
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding: 0 2.5rem;
+}
+.step { text-align: center; position: relative; width: 25%; }
+.step-indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    background-color: var(--gray-200);
+    color: var(--gray-600);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 60px);
+    height: 2px;
+    background-color: var(--gray-200);
+    top: 20px;
+    left: calc(50% + 30px);
+}
+.step-indicator.active { background-color: var(--secondary); color: var(--white); }
+.step-indicator.completed { background-color: var(--primary); color: var(--white); }
+.step-label { font-size: 0.875rem; font-weight: 500; color: var(--gray-600); }
+.form-section { display: none; }
+.form-section.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.form-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+.form-navigation { margin-top: 2rem; display: flex; justify-content: space-between; }
+.form-navigation .next-btn, .form-navigation .prev-btn + .next-btn, .form-navigation .prev-btn + button[type=submit] { margin-left: auto; }
+.error-message { color: #EF4444; font-size: 0.875rem; margin-top: 0.25rem; display: none; }
+.form-control.input-error { border-color: #EF4444; }
+.checkbox-group { display: flex; flex-direction: column; gap: 1rem; }
+.checkbox-item { display: flex; align-items: flex-start; }
+.checkbox-item input { margin-top: 5px; margin-right: 0.75rem; height: 1.25em; width: 1.25em; }
+.review-pane { background-color: var(--gray-50); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem; }
+.review-grid { display: grid; gap: 1rem; }
+.success-message { text-align: center; padding: 2rem; }
+.success-icon { color: var(--secondary); margin-bottom: 1rem; }
