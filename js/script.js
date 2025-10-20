@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const navLinks = document.getElementById('main-nav-links');
+
+    if (mobileMenuButton && navLinks) {
+        mobileMenuButton.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            mobileMenuButton.setAttribute('aria-expanded', isOpen);
+            const newLabel = isOpen ? 'Fechar menu' : 'Abrir menu';
+            mobileMenuButton.setAttribute('aria-label', newLabel);
+        });
+    }
     const registrationForm = document.getElementById('registrationForm');
     if (registrationForm) {
         const sections = document.querySelectorAll('.form-section');
@@ -39,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const showError = (input, message) => {
             input.classList.add('input-error');
             const errorDiv = input.nextElementSibling;
-            if(errorDiv && errorDiv.classList.contains('error-message')) {
+            if (errorDiv && errorDiv.classList.contains('error-message')) {
                 errorDiv.textContent = message;
                 errorDiv.style.display = 'block';
             }
@@ -48,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hideError = (input) => {
             input.classList.remove('input-error');
             const errorDiv = input.nextElementSibling;
-            if(errorDiv && errorDiv.classList.contains('error-message')) {
+            if (errorDiv && errorDiv.classList.contains('error-message')) {
                 errorDiv.style.display = 'none';
             }
         };
@@ -84,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.classList.contains('next-btn')) {
                 if (validateSection(currentSection)) {
                     if (currentSection === 3) { // Antes de ir para a confirmação
-                       updateReviewPane();
+                        updateReviewPane();
                     }
                     currentSection++;
                     updateUI();

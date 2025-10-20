@@ -296,3 +296,30 @@ body {
     outline-offset: 2px;
     border-radius: 0.25rem;
 }
+
+/* Mobile Menu State */
+.nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+/* Adjust desktop view */
+@media (min-width: 768px) {
+    .nav-links.is-open {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+        gap: 2rem;
+    }
+}
