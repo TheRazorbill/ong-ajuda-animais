@@ -241,3 +241,51 @@ body {
 .review-grid { display: grid; gap: 1rem; }
 .success-message { text-align: center; padding: 2rem; }
 .success-icon { color: var(--secondary); margin-bottom: 1rem; }
+
+/* Page Specific Styles */
+.hero-bg {
+    padding: 8rem 0;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('http://static.photos/animals/1200x630/42');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+.hero-content { text-align: center; }
+.hero-title { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; }
+.hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; max-width: 42rem; margin-left: auto; margin-right: auto;}
+.hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.animal-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+.stat-number { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.stat-label { font-size: 1.25rem; }
+.volunteer-bg {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('http://static.photos/people/1200x630/10');
+    background-size: cover;
+    background-position: center;
+}
+.donation-bg {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('http://static.photos/finance/1200x630/5');
+    background-size: cover;
+    background-position: center;
+}
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.glass-card.active { border: 2px solid var(--primary); }
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .mobile-menu-button { display: none; }
+    .hero-title { font-size: 3.75rem; }
+    .grid-cols-2-gap-12 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .footer .grid-cols-4 { text-align: left; }
+    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .review-grid { grid-template-columns: repeat(2, 1fr); }
+}
