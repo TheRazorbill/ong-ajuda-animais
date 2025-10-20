@@ -289,3 +289,10 @@ body {
     .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
     .review-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Accessibility Focus State */
+:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
